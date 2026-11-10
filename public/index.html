@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>BDG WIN</title>
+    <link rel="stylesheet" href="/style.css">
+    <link rel="icon" type="image/png" href="/assets/hd/logo.png">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="desktop-wrapper">
+        <div class="app-container" id="app">
+            
+            <!-- TOP APP HEADER (Only Logo on Left + Mail & Download on Right) -->
+            <header class="app-header">
+                <div class="brand">
+                    <img src="/assets/hd/logo.png" alt="BDG WIN" class="brand-logo">
+                </div>
+                <div class="header-actions">
+                    <button class="header-icon-btn mail-btn" title="Messages" onclick="requireLogin('messages')">
+                        <i class="fa-solid fa-envelope"></i>
+                    </button>
+                    <button class="header-icon-btn dl-btn" title="Download App" onclick="openDownloadModal()">
+                        <i class="fa-solid fa-download"></i>
+                    </button>
+                </div>
+            </header>
+
+            <!-- SCROLLABLE CONTENT -->
+            <main class="app-content">
+
+                <!-- TAB 1: HOME VIEW -->
+                <div id="view-home" class="page-view active">
+                    
+                    <!-- HD BANNER CAROUSEL (4 Slides) -->
+                    <div class="banner-section">
+                        <div class="banner-carousel" id="bannerCarousel">
+                            <div class="banner-slide active">
+                                <img src="/assets/hd/banner1.jpg" alt="Member's First Deposit Bonus" class="banner-img">
+                            </div>
+                            <div class="banner-slide">
+                                <img src="/assets/hd/banner2.jpg" alt="Daily Check-In Bonus" class="banner-img">
+                            </div>
+                            <div class="banner-slide">
+                                <img src="/assets/hd/banner3.png" alt="Invitation Bonus" class="banner-img">
+                            </div>
+                            <div class="banner-slide">
+                                <img src="/assets/hd/banner4.png" alt="BDG Win Special" class="banner-img">
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- EXACT BDG WIN 2-LINE VERTICAL NOTICE TICKER (Matching Screenshot) -->
+                    <div class="notice-ticker">
+                        <div class="notice-speaker">
+                            <i class="fa-solid fa-volume-high"></i>
+                        </div>
+                        <div class="vertical-notice-wrapper">
+                            <div class="vertical-notice-slider" id="notice-slider">
+                                <div class="vertical-notice-item">
+                                    <p>Please Remember The Upi Id Of Your Paym</p>
+                                    <p>ent And Fill In The Correct Utr Number And</p>
+                                </div>
+                                <div class="vertical-notice-item">
+                                    <p>Submit! The Platform Will Process Withdraw</p>
+                                    <p>als Safely, Quickly &amp; Directly To Your Bank!</p>
+                                </div>
+                                <div class="vertical-notice-item">
+                                    <p>Keep Your Account Secret &amp; Never Share</p>
+                                    <p>Your Password Or OTP With Anyone!</p>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="detail-btn" onclick="openNoticeModal()">
+                            <i class="fa-solid fa-fire"></i> Detail
+                        </button>
+                    </div>
+
+                    <!-- EXACT BDG CATEGORY NAVIGATION (Row 1: 3 cards, Row 2: 1 wide 3-section card, Row 3: 2 cards) -->
+                    <div class="bdg-category-container">
+                        
+                        <!-- Row 1: 3 Cards (Popular, Lottery, Slots) -->
+                        <div class="cat-row-1">
+                            <div class="bdg-cat-card active" data-cat="popular" onclick="switchCategory('popular')">
+                                <img src="/assets/hd/cat_popular.png" alt="Popular" class="cat-3d-icon">
+                                <span class="cat-label">Popular</span>
+                            </div>
+                            <div class="bdg-cat-card" data-cat="lottery" onclick="switchCategory('lottery')">
+                                <img src="/assets/hd/cat_lottery.png" alt="Lottery" class="cat-3d-icon">
+                                <span class="cat-label">Lottery</span>
+                            </div>
+                            <div class="bdg-cat-card" data-cat="slots" onclick="switchCategory('slots')">
+                                <img src="/assets/hd/cat_slots.png" alt="Slots" class="cat-3d-icon">
+                                <span class="cat-label">Slots</span>
+                            </div>
+                        </div>
+
+                        <!-- Row 2: Single Wide Card with 3 Sections (Sports | Casino | Rummy) -->
+                        <div class="cat-row-2">
+                            <div class="cat-section" data-cat="sports" onclick="switchCategory('sports')">
+                                <img src="/assets/hd/cat_sports.png" alt="Sports" class="cat-3d-icon-sm">
+                                <span class="cat-label">Sports</span>
+                            </div>
+                            <div class="cat-divider"></div>
+                            <div class="cat-section" data-cat="casino" onclick="switchCategory('casino')">
+                                <img src="/assets/hd/cat_casino.png" alt="Casino" class="cat-3d-icon-sm">
+                                <span class="cat-label">Casino</span>
+                            </div>
+                            <div class="cat-divider"></div>
+                            <div class="cat-section" data-cat="rummy" onclick="switchCategory('rummy')">
+                                <img src="/assets/hd/cat_rummy.png" alt="Rummy" class="cat-3d-icon-sm">
+                                <span class="cat-label">Rummy</span>
+                            </div>
+                        </div>
+
+                        <!-- Row 3: 2 Horizontal Cards (Fishing & Original) -->
+                        <div class="cat-row-3">
+                            <div class="bdg-cat-card-h" data-cat="fishing" onclick="switchCategory('fishing')">
+                                <img src="/assets/hd/cat_fishing.png" alt="Fishing" class="cat-3d-icon-h">
+                                <span class="cat-label">Fishing</span>
+                            </div>
+                            <div class="bdg-cat-card-h" data-cat="original" onclick="switchCategory('original')">
+                                <img src="/assets/hd/cat_original.png" alt="Original" class="cat-3d-icon-h">
+                                <span class="cat-label">Original</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- DYNAMIC CATEGORY CONTENT AREA (Switches without reload on same page) -->
+                    <div id="category-content-area">
+
+                        <!-- CATEGORY 1: POPULAR -->
+                        <div id="subcat-popular" class="subcat-content active">
+                            
+                            <!-- Platform Recommendation (6 Square Games) -->
+                            <div class="section-title">
+                                <span class="title-bar"></span> Platform recommendation
+                            </div>
+                            <div class="grid-3col">
+                                <div class="game-box" onclick="handleGameClick('Chicken Road 2')">
+                                    <img src="/assets/games/rec_tb_121.png" alt="Chicken Road 2">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Win Go 30s')">
+                                    <img src="/assets/games/rec_wingo_30s.png" alt="Win Go 30s">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Aviator')">
+                                    <img src="/assets/games/rec_aviator.png" alt="Aviator">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fortune Gems')">
+                                    <img src="/assets/games/rec_jili_109.png" alt="Fortune Gems">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Money Coming')">
+                                    <img src="/assets/games/rec_jili_51.png" alt="Money Coming">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('PUBG 1MIN')">
+                                    <img src="/assets/games/rec_tb_910.png" alt="PUBG">
+                                </div>
+                            </div>
+
+                            <!-- Popular Games (18 Square Games) -->
+                            <div class="section-title" style="margin-top: 18px;">
+                                <span class="title-bar"></span> Popular
+                            </div>
+                            <div class="grid-3col">
+                                <div class="game-box" onclick="handleGameClick('Money Coming')">
+                                    <img src="/assets/games/pop_jili_51.png" alt="Money Coming">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fortune Gems')">
+                                    <img src="/assets/games/pop_jili_109.png" alt="Fortune Gems">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fortune Gems 2')">
+                                    <img src="/assets/games/pop_jili_223.png" alt="Fortune Gems 2">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Dabdu Playing Pictures')">
+                                    <img src="/assets/games/pop_jili_200.png" alt="Dabdu">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Hot Spin')">
+                                    <img src="/assets/games/pop_cq9_19.png" alt="Hot Spin">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Super Ace')">
+                                    <img src="/assets/games/pop_jili_49.png" alt="Super Ace">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Color Game')">
+                                    <img src="/assets/games/pop_jili_197.png" alt="Color Game">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Wildfire Wins')">
+                                    <img src="/assets/games/pop_mg_wildfire.png" alt="Wildfire Wins">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Crazy 777')">
+                                    <img src="/assets/games/pop_jili_35.png" alt="Crazy 777">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Lucky 7')">
+                                    <img src="/assets/games/pop_jdb_14027.png" alt="Lucky 7">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Charge Buffalo')">
+                                    <img src="/assets/games/pop_jili_47.png" alt="Charge Buffalo">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Jackpot Fishing')">
+                                    <img src="/assets/games/pop_jili_32.png" alt="Jackpot Fishing">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Mega Ace')">
+                                    <img src="/assets/games/pop_jili_300.png" alt="Mega Ace">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Golden Empire')">
+                                    <img src="/assets/games/pop_jili_82.png" alt="Golden Empire">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Boxing King')">
+                                    <img src="/assets/games/pop_jili_27.png" alt="Boxing King">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fa Cai Shen')">
+                                    <img src="/assets/games/pop_cq9_66.png" alt="Fa Cai Shen">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Aladdin')">
+                                    <img src="/assets/games/pop_cq9_at01.png" alt="Aladdin">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Lucky Dragon')">
+                                    <img src="/assets/games/pop_jdb_14006.png" alt="Lucky Dragon">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CATEGORY 2: LOTTERY (Exact matching design with 4 golden cards & floating 3D icons) -->
+                        <div id="subcat-lottery" class="subcat-content">
+                            <div class="section-title">
+                                <span class="title-bar"></span> Lottery
+                            </div>
+                            <div class="lottery-cards-container">
+                                
+                                <!-- Card 1: Win Go -->
+                                <div class="lottery-card" onclick="handleGameClick('Win Go')">
+                                    <div class="lottery-info">
+                                        <h3>Win Go</h3>
+                                        <p>Guess Number</p>
+                                        <p>Green/Red/Violet to win</p>
+                                    </div>
+                                    <img src="/assets/lottery/icon_wingo.png" alt="Win Go" class="lottery-icon">
+                                </div>
+
+                                <!-- Card 2: MotoRace -->
+                                <div class="lottery-card" onclick="handleGameClick('MotoRace')">
+                                    <div class="lottery-info">
+                                        <h3>MotoRace</h3>
+                                        <p>In the competition</p>
+                                        <p>Bet on the top three</p>
+                                    </div>
+                                    <img src="/assets/lottery/icon_motorace.png" alt="MotoRace" class="lottery-icon">
+                                </div>
+
+                                <!-- Card 3: K3 -->
+                                <div class="lottery-card" onclick="handleGameClick('K3')">
+                                    <div class="lottery-info">
+                                        <h3>K3</h3>
+                                        <p>Guess Number</p>
+                                        <p>Big/Small/Odd/Even</p>
+                                    </div>
+                                    <img src="/assets/lottery/icon_k3.png" alt="K3" class="lottery-icon">
+                                </div>
+
+                                <!-- Card 4: 5D -->
+                                <div class="lottery-card" onclick="handleGameClick('5D')">
+                                    <div class="lottery-info">
+                                        <h3>5D</h3>
+                                        <p>Guess Number</p>
+                                        <p>Big/Small/Odd/Even</p>
+                                    </div>
+                                    <img src="/assets/lottery/icon_5d.png" alt="5D" class="lottery-icon">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- CATEGORY 3: SLOTS (9 HD Vendor Logos) -->
+                        <div id="subcat-slots" class="subcat-content">
+                            <div class="section-title">
+                                <span class="title-bar"></span> Slots
+                            </div>
+                            <div class="grid-3col">
+                                <div class="game-box" onclick="handleGameClick('Slot JDB')">
+                                    <img src="/assets/slots/slot_vendor_1.png" alt="JDB">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Slot CQ9')">
+                                    <img src="/assets/slots/slot_vendor_2.png" alt="CQ9">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Slot MG')">
+                                    <img src="/assets/slots/slot_vendor_3.png" alt="MG">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Slot G9')">
+                                    <img src="/assets/slots/slot_vendor_4.png" alt="G9">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Slot INOUT')">
+                                    <img src="/assets/slots/slot_vendor_5.png" alt="INOUT">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Slot BGaming')">
+                                    <img src="/assets/slots/slot_vendor_6.png" alt="BGaming">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Slot Yggdrasil')">
+                                    <img src="/assets/slots/slot_vendor_7.png" alt="Yggdrasil">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Slot Evolution')">
+                                    <img src="/assets/slots/slot_vendor_8.png" alt="Evolution">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Slot JILI')">
+                                    <img src="/assets/slots/slot_vendor_9.png" alt="JILI">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CATEGORY 4: SPORTS (Exact match to screenshot media_1794294699119_159976a2.jpg) -->
+                        <div id="subcat-sports" class="subcat-content">
+                            <div class="section-title">
+                                <span class="title-bar"></span> Sports
+                            </div>
+                            <div class="vendor-cards-container">
+                                
+                                <!-- Card 1: WICKETS Sports -->
+                                <div class="vendor-card" onclick="handleGameClick('WICKETS Sports')">
+                                    <div class="vendor-card-left">
+                                        <div class="vendor-brand-title">9</div>
+                                        <div class="vendor-cat-badge">Sports</div>
+                                        <div class="vendor-sub">WICKETS Sports</div>
+                                    </div>
+                                    <img src="/assets/sports/sport_wickets.png" alt="WICKETS Sports" class="vendor-card-img">
+                                </div>
+
+                                <!-- Card 2: Saba Sports -->
+                                <div class="vendor-card" onclick="handleGameClick('Saba Sports')">
+                                    <div class="vendor-card-left">
+                                        <div class="vendor-brand-title">SABA</div>
+                                        <div class="vendor-cat-badge">Sports</div>
+                                        <div class="vendor-sub">Saba Sports</div>
+                                    </div>
+                                    <img src="/assets/sports/sport_saba.png" alt="Saba Sports" class="vendor-card-img">
+                                </div>
+
+                                <!-- Card 3: AR Sports -->
+                                <div class="vendor-card" onclick="handleGameClick('AR Sports')">
+                                    <div class="vendor-card-left">
+                                        <div class="vendor-brand-title">ARBET</div>
+                                        <div class="vendor-cat-badge">Sports</div>
+                                        <div class="vendor-sub">AR Sports</div>
+                                    </div>
+                                    <img src="/assets/sports/sport_ar.png" alt="AR Sports" class="vendor-card-img">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- CATEGORY 5: CASINO (Exact match to screenshot media_1794294807993_5a32d999.jpg) -->
+                        <div id="subcat-casino" class="subcat-content">
+                            <div class="section-title">
+                                <span class="title-bar"></span> Casino
+                            </div>
+                            <div class="vendor-cards-container">
+                                
+                                <!-- Card 1: CHOICE Casino -->
+                                <div class="vendor-card" onclick="handleGameClick('CHOICE Casino')">
+                                    <div class="vendor-card-left">
+                                        <div class="vendor-brand-title">CHOICE</div>
+                                        <div class="vendor-cat-badge">Casino</div>
+                                        <div class="vendor-sub">Choice</div>
+                                    </div>
+                                    <img src="/assets/casino/casino_choice.png" alt="CHOICE Casino" class="vendor-card-img">
+                                </div>
+
+                                <!-- Card 2: WM Casino -->
+                                <div class="vendor-card" onclick="handleGameClick('WM Casino')">
+                                    <div class="vendor-card-left">
+                                        <div class="vendor-brand-title">WM</div>
+                                        <div class="vendor-cat-badge">Casino</div>
+                                        <div class="vendor-sub">WM Casino</div>
+                                    </div>
+                                    <img src="/assets/casino/casino_wm.png" alt="WM Casino" class="vendor-card-img">
+                                </div>
+
+                                <!-- Card 3: Sexy Casino -->
+                                <div class="vendor-card" onclick="handleGameClick('Sexy Casino')">
+                                    <div class="vendor-card-left">
+                                        <div class="vendor-brand-title">Sexy</div>
+                                        <div class="vendor-cat-badge">Casino</div>
+                                        <div class="vendor-sub">Sexy Casino</div>
+                                    </div>
+                                    <img src="/assets/casino/casino_sexy.png" alt="Sexy Casino" class="vendor-card-img">
+                                </div>
+
+                                <!-- Card 4: EVO Casino -->
+                                <div class="vendor-card" onclick="handleGameClick('EVO Casino')">
+                                    <div class="vendor-card-left">
+                                        <div class="vendor-brand-title">Evo</div>
+                                        <div class="vendor-cat-badge">Casino</div>
+                                        <div class="vendor-sub">EVO Casino</div>
+                                    </div>
+                                    <img src="/assets/casino/casino_evo.png" alt="EVO Casino" class="vendor-card-img">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- CATEGORY 6: RUMMY / PVC (Exact match to screenshot media_1794294868241_a98b8551.png) -->
+                        <div id="subcat-rummy" class="subcat-content">
+                            <div class="section-title">
+                                <span class="title-bar"></span> PVC
+                            </div>
+                            <div class="vendor-cards-container">
+                                
+                                <!-- Card 1: V8 Poker -->
+                                <div class="vendor-card" onclick="handleGameClick('V8 Poker')">
+                                    <div class="vendor-card-left">
+                                        <div class="vendor-brand-title">V8 POKER</div>
+                                        <div class="vendor-cat-badge">Rummy</div>
+                                        <div class="vendor-sub">V8</div>
+                                    </div>
+                                    <img src="/assets/rummy/rummy_v8.png" alt="V8 Poker" class="vendor-card-img">
+                                </div>
+
+                                <!-- Card 2: KOOLBET -->
+                                <div class="vendor-card" onclick="handleGameClick('KOOLBET Rummy')">
+                                    <div class="vendor-card-left">
+                                        <div class="vendor-brand-title">KOOLBET</div>
+                                        <div class="vendor-cat-badge">Rummy</div>
+                                        <div class="vendor-sub">Koolbet</div>
+                                    </div>
+                                    <img src="/assets/rummy/rummy_koolbet.png" alt="KOOLBET Rummy" class="vendor-card-img">
+                                </div>
+
+                                <!-- Card 3: 365 -->
+                                <div class="vendor-card" onclick="handleGameClick('365 Rummy')">
+                                    <div class="vendor-card-left">
+                                        <div class="vendor-brand-title">365</div>
+                                        <div class="vendor-cat-badge">Rummy</div>
+                                        <div class="vendor-sub">365</div>
+                                    </div>
+                                    <img src="/assets/rummy/rummy_365.png" alt="365 Rummy" class="vendor-card-img">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <!-- CATEGORY 7: FISHING (15 Official Games) -->
+                        <div id="subcat-fishing" class="subcat-content">
+                            <div class="section-title">
+                                <span class="title-bar"></span> Fishing
+                            </div>
+                            <div class="grid-3col">
+                                <div class="game-box" onclick="handleGameClick('Fishing JILI 32')">
+                                    <img src="/assets/fishing/fish_jili_32.png" alt="Fishing 32">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing JILI 42')">
+                                    <img src="/assets/fishing/fish_jili_42.png" alt="Fishing 42">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing JILI 60')">
+                                    <img src="/assets/fishing/fish_jili_60.png" alt="Fishing 60">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing JILI 71')">
+                                    <img src="/assets/fishing/fish_jili_71.png" alt="Fishing 71">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing JILI 74')">
+                                    <img src="/assets/fishing/fish_jili_74.png" alt="Fishing 74">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing JILI 82')">
+                                    <img src="/assets/fishing/fish_jili_82.png" alt="Fishing 82">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing JDB 7008')">
+                                    <img src="/assets/fishing/fish_jdb_7008.png" alt="Fishing 7008">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing CQ9 AB3')">
+                                    <img src="/assets/fishing/fish_cq9_ab3.png" alt="Fishing AB3">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing CQ9 AT01')">
+                                    <img src="/assets/fishing/fish_cq9_at01.png" alt="Fishing AT01">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing CQ9 AT05')">
+                                    <img src="/assets/fishing/fish_cq9_at05.png" alt="Fishing AT05">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing CQ9 GO02')">
+                                    <img src="/assets/fishing/fish_cq9_go02.png" alt="Fishing GO02">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing JDB 7001')">
+                                    <img src="/assets/fishing/fish_jdb_7001.png" alt="Fishing 7001">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing JDB 7002')">
+                                    <img src="/assets/fishing/fish_jdb_7002.png" alt="Fishing 7002">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing JDB 7003')">
+                                    <img src="/assets/fishing/fish_jdb_7003.png" alt="Fishing 7003">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Fishing JDB 7004')">
+                                    <img src="/assets/fishing/fish_jdb_7004.png" alt="Fishing 7004">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- CATEGORY 8: ORIGINAL (15 Official Games) -->
+                        <div id="subcat-original" class="subcat-content">
+                            <div class="section-title">
+                                <span class="title-bar"></span> Original
+                            </div>
+                            <div class="grid-3col">
+                                <div class="game-box" onclick="handleGameClick('Original TB 121')">
+                                    <img src="/assets/original/orig_tb_121.png" alt="Chicken Road">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original Aviator')">
+                                    <img src="/assets/original/orig_spribe_22001.png" alt="Aviator">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 124')">
+                                    <img src="/assets/original/orig_tb_124.png" alt="Original 124">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 910')">
+                                    <img src="/assets/original/orig_tb_910.png" alt="PUBG">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 123')">
+                                    <img src="/assets/original/orig_tb_123.png" alt="Original 123">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original JILI 229')">
+                                    <img src="/assets/original/orig_jili_229.png" alt="Original 229">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 903')">
+                                    <img src="/assets/original/orig_tb_903.png" alt="Original 903">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 900')">
+                                    <img src="/assets/original/orig_tb_900.png" alt="Original 900">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 812')">
+                                    <img src="/assets/original/orig_tb_812.png" alt="Original 812">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 811')">
+                                    <img src="/assets/original/orig_tb_811.png" alt="Original 811">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 810')">
+                                    <img src="/assets/original/orig_tb_810.png" alt="Original 810">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 503')">
+                                    <img src="/assets/original/orig_tb_503.png" alt="Original 503">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 502')">
+                                    <img src="/assets/original/orig_tb_502.png" alt="Original 502">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 501')">
+                                    <img src="/assets/original/orig_tb_501.png" alt="Original 501">
+                                </div>
+                                <div class="game-box" onclick="handleGameClick('Original TB 500')">
+                                    <img src="/assets/original/orig_tb_500.png" alt="Original 500">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- WINNING INFORMATION (Live Feed Ticker) -->
+                    <div class="section-title" style="margin-top: 24px;">
+                        <span class="title-bar"></span> Winning information
+                    </div>
+                    <div class="winning-info-box" id="winning-feed">
+                        <!-- Dynamic Winner rows inserted via JS -->
+                    </div>
+
+                    <!-- TODAY'S EARNINGS CHART (Leaderboard) -->
+                    <div class="section-title" style="margin-top: 24px;">
+                        <span class="title-bar"></span> Today's earnings chart
+                    </div>
+
+                    <!-- Podium Graphic (Top 1, 2, 3) -->
+                    <div class="podium-card">
+                        <img src="/assets/extracted/earnings_podium.png" alt="Earnings Podium" class="podium-img">
+                    </div>
+
+                    <!-- Ranks 4 to 10 List -->
+                    <div class="ranks-list">
+                        <div class="rank-item">
+                            <div class="rank-num">4</div>
+                            <img src="/assets/extracted/rank4.png" alt="User" class="rank-avatar">
+                            <div class="rank-username">Mem***WOR</div>
+                            <div class="rank-amount">₹7,280,336.08</div>
+                        </div>
+                        <div class="rank-item">
+                            <div class="rank-num">5</div>
+                            <img src="/assets/extracted/rank5.png" alt="User" class="rank-avatar">
+                            <div class="rank-username">Su***ta</div>
+                            <div class="rank-amount">₹6,645,871.80</div>
+                        </div>
+                        <div class="rank-item">
+                            <div class="rank-num">6</div>
+                            <img src="/assets/extracted/rank6.png" alt="User" class="rank-avatar">
+                            <div class="rank-username">Mem***8EE</div>
+                            <div class="rank-amount">₹5,322,481.92</div>
+                        </div>
+                        <div class="rank-item">
+                            <div class="rank-num">7</div>
+                            <img src="/assets/extracted/rank7.png" alt="User" class="rank-avatar">
+                            <div class="rank-username">Mem***TLL</div>
+                            <div class="rank-amount">₹3,353,560.00</div>
+                        </div>
+                        <div class="rank-item">
+                            <div class="rank-num">8</div>
+                            <img src="/assets/extracted/rank8.png" alt="User" class="rank-avatar">
+                            <div class="rank-username">Mem***96F</div>
+                            <div class="rank-amount">₹2,740,860.00</div>
+                        </div>
+                        <div class="rank-item">
+                            <div class="rank-num">9</div>
+                            <img src="/assets/extracted/rank9.png" alt="User" class="rank-avatar">
+                            <div class="rank-username">Mem***KUE</div>
+                            <div class="rank-amount">₹2,373,579.60</div>
+                        </div>
+                        <div class="rank-item">
+                            <div class="rank-num">10</div>
+                            <img src="/assets/extracted/rank10.png" alt="User" class="rank-avatar">
+                            <div class="rank-username">BD***BC</div>
+                            <div class="rank-amount">₹1,934,570.00</div>
+                        </div>
+                    </div>
+
+                    <!-- Spacing for fixed elements -->
+                    <div style="height: 120px;"></div>
+
+                </div>
+
+                <!-- TAB 2: ACTIVITY VIEW -->
+                <div id="view-activity" class="page-view">
+                    <div class="page-header-title">Activity Center</div>
+                    <div class="activity-cards">
+                        <div class="act-card" onclick="requireLogin('activity')">
+                            <div class="act-badge">🔥 Hot</div>
+                            <h3>Daily Sign-in Bonus</h3>
+                            <p>Check in daily to receive up to ₹1,000 cash reward.</p>
+                            <button class="act-btn">Claim ₹50</button>
+                        </div>
+                        <div class="act-card" onclick="requireLogin('vip')">
+                            <div class="act-badge">VIP</div>
+                            <h3>VIP Level Rewards</h3>
+                            <p>Level up your account to unlock weekly cashback and priority withdrawals.</p>
+                            <button class="act-btn">View Rewards</button>
+                        </div>
+                        <div class="act-card" onclick="openWheelModal()">
+                            <div class="act-badge">Special</div>
+                            <h3>Lucky Spin Carnival</h3>
+                            <p>Spin the golden wheel for a guaranteed cash reward!</p>
+                            <button class="act-btn">Spin Now</button>
+                        </div>
+                    </div>
+                    <div style="height: 120px;"></div>
+                </div>
+
+                <!-- TAB 3: PROMOTION VIEW -->
+                <div id="view-promotion" class="page-view">
+                    <div class="page-header-title">Promotion Partner</div>
+                    <div class="promo-box">
+                        <div class="promo-title">Refer &amp; Earn 0.6% Commission</div>
+                        <div class="promo-code-card">
+                            <span>My Invite Code:</span>
+                            <strong id="invite-code">BDG889921</strong>
+                            <button class="copy-btn" onclick="copyInviteCode()">Copy</button>
+                        </div>
+                        <div class="promo-stats">
+                            <div class="stat-col">
+                                <div class="stat-val">₹14,520.00</div>
+                                <div class="stat-lbl">Yesterday's Total Commission</div>
+                            </div>
+                            <div class="stat-col">
+                                <div class="stat-val">42</div>
+                                <div class="stat-lbl">Direct Subordinates</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 120px;"></div>
+                </div>
+
+                <!-- TAB 4: ACCOUNT VIEW -->
+                <div id="view-account" class="page-view">
+                    <div class="profile-card">
+                        <div class="profile-top">
+                            <img src="/assets/extracted/rank4.png" alt="Avatar" class="profile-avatar">
+                            <div class="profile-details">
+                                <div class="profile-name">Member_91823</div>
+                                <div class="profile-uid">UID: 8291045 <i class="fa-regular fa-copy" onclick="showToast('UID Copied')"></i></div>
+                                <div class="vip-pill">VIP 3 Member</div>
+                            </div>
+                        </div>
+                        <div class="balance-card">
+                            <div class="bal-label">Total Balance</div>
+                            <div class="bal-amount" id="user-balance">₹ 5,820.50</div>
+                            <div class="bal-actions">
+                                <button class="bal-btn deposit-btn" onclick="requireLogin('deposit')"><i class="fa-solid fa-wallet"></i> Deposit</button>
+                                <button class="bal-btn withdraw-btn" onclick="requireLogin('withdraw')"><i class="fa-solid fa-money-bill-transfer"></i> Withdraw</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="menu-list">
+                        <div class="menu-item" onclick="requireLogin('history')">
+                            <i class="fa-solid fa-clock-rotate-left"></i>
+                            <span>Betting History</span>
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </div>
+                        <div class="menu-item" onclick="requireLogin('records')">
+                            <i class="fa-solid fa-file-invoice-dollar"></i>
+                            <span>Transaction Records</span>
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </div>
+                        <div class="menu-item" onclick="showToast('24/7 Live Support Connected')">
+                            <i class="fa-solid fa-headset"></i>
+                            <span>Customer Service</span>
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </div>
+                        <div class="menu-item" onclick="requireLogin('security')">
+                            <i class="fa-solid fa-gear"></i>
+                            <span>Security Settings</span>
+                            <i class="fa-solid fa-chevron-right arrow"></i>
+                        </div>
+                    </div>
+                    <div style="height: 120px;"></div>
+                </div>
+
+            </main>
+
+            <!-- FLOATING "BDG Add to Desktop" BUTTON -->
+            <div class="floating-desktop-pill" onclick="installPWA()">
+                <div class="pill-badge">BDG</div>
+                <span>Add to Desktop</span>
+            </div>
+
+            <!-- FLOATING RIGHT ACTION SIDEBAR (4 Official Floating Icons: Gift, Spin Wheel, VIP Crown, Support) -->
+            <div class="floating-right-bar">
+                <div class="floating-icon-btn" onclick="openLoginSheet()" title="Event Rewards">
+                    <img src="/assets/hd/side_gift1.png" alt="Rewards">
+                </div>
+                <div class="floating-icon-btn" onclick="openWheelModal()" title="Lucky Spin">
+                    <img src="/assets/hd/side_wheel2.png" alt="Lucky Wheel">
+                </div>
+                <div class="floating-icon-btn" onclick="openNoticeModal()" title="VIP Privilege">
+                    <img src="/assets/hd/side_vip.png" alt="VIP Bonus">
+                </div>
+                <div class="floating-icon-btn" onclick="openSupportChat()" title="Customer Service">
+                    <img src="/assets/hd/side_service.png" alt="Customer Service">
+                </div>
+            </div>
+
+            <!-- EXACT BDG WIN 1:1 BOTTOM NAVIGATION BAR WITH HALF-CIRCLE CENTER WHEEL -->
+            <nav class="bottom-nav">
+                <div class="nav-item active" id="nav-home" onclick="switchNav('home')">
+                    <img src="/assets/nav/home_active.png" alt="Home" class="nav-tab-icon" id="icon-home">
+                    <span class="nav-tab-label">Home</span>
+                </div>
+                <div class="nav-item" id="nav-activity" onclick="switchNav('activity')">
+                    <img src="/assets/nav/activity_inactive.png" alt="Activity" class="nav-tab-icon" id="icon-activity">
+                    <span class="nav-tab-label">Activity</span>
+                </div>
+                
+                <!-- Center Glowing "Get ₹500" Half-Circle Arch Wheel -->
+                <div class="nav-center-wheel" onclick="openWheelModal()" title="Get ₹500 Spin">
+                    <div class="wheel-arch-wrapper">
+                        <img src="/assets/nav/wheel_arch.png" alt="Get ₹500 Wheel" class="nav-wheel-arch-img">
+                    </div>
+                    <div class="nav-wheel-divider"></div>
+                    <span class="wheel-label">Get ₹500</span>
+                </div>
+
+                <div class="nav-item" id="nav-promotion" onclick="switchNav('promotion')">
+                    <img src="/assets/nav/promotion_inactive.png" alt="Promotion" class="nav-tab-icon" id="icon-promotion">
+                    <span class="nav-tab-label">Promotion</span>
+                </div>
+                <div class="nav-item" id="nav-account" onclick="switchNav('account')">
+                    <img src="/assets/nav/account_inactive.png" alt="Account" class="nav-tab-icon" id="icon-account">
+                    <span class="nav-tab-label">Account</span>
+                </div>
+            </nav>
+
+        </div>
+    </div>
+
+    <!-- BOTTOM SHEET: EVENT REWARDS LOGIN PROMPT -->
+    <div id="login-sheet" class="bottom-sheet-overlay">
+        <div class="bottom-sheet-card">
+            
+            <!-- Floating 3D Gift Box -->
+            <div class="gift-box-wrapper">
+                <img src="/assets/hd/gift_box.png" alt="Gift Rewards" class="gift-box-img">
+            </div>
+
+            <div class="sheet-content">
+                <div class="sheet-title">
+                    <span class="emoji-hand">💸</span> Event Rewards <span class="emoji-hand">💸</span>
+                </div>
+                <p class="sheet-desc">
+                    Log in to participate in the <strong>event rewards</strong> and unlock all 8 exclusive rewards
+                </p>
+
+                <!-- Primary Action -->
+                <button class="sheet-login-btn" onclick="openAuthModal()">
+                    Log in now to participate
+                </button>
+
+                <!-- Dismiss Link -->
+                <div class="sheet-skip-link" onclick="closeLoginSheet()">
+                    Don't log in yet, continue browsing
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MODAL: LOGIN / SIGNUP DIALOG -->
+    <div id="auth-modal" class="modal-overlay">
+        <div class="modal-card auth-dialog">
+            <button class="modal-close" onclick="closeModals()">&times;</button>
+            <div class="auth-header">
+                <h3>Member Login</h3>
+                <p>Welcome back to BDG WIN</p>
+            </div>
+            <div class="auth-form">
+                <div class="input-group">
+                    <i class="fa-solid fa-phone"></i>
+                    <input type="tel" id="login-phone" placeholder="Phone Number" value="+91 ">
+                </div>
+                <div class="input-group">
+                    <i class="fa-solid fa-lock"></i>
+                    <input type="password" id="login-pass" placeholder="Set Password">
+                </div>
+                <button class="auth-submit-btn" onclick="performLogin()">Log in</button>
+                <div class="auth-footer-links">
+                    <span onclick="showToast('Password reset link sent to phone')">Forgot Password?</span>
+                    <span onclick="showToast('Switching to Register')">Register Account</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL: Lucky Spin Wheel -->
+    <div id="wheel-modal" class="modal-overlay">
+        <div class="modal-card wheel-dialog">
+            <button class="modal-close" onclick="closeWheelModal()">&times;</button>
+            <div class="wheel-dialog-title">
+                <h2>LUCKY BONUS WHEEL</h2>
+                <p>Free Spin Available! Win up to ₹5,000</p>
+            </div>
+            <div class="wheel-container">
+                <div class="wheel-pointer">▼</div>
+                <div class="wheel-disc" id="wheel-disc">
+                    <div class="slice s1"><span>₹50</span></div>
+                    <div class="slice s2"><span>₹100</span></div>
+                    <div class="slice s3"><span>₹500</span></div>
+                    <div class="slice s4"><span>₹10</span></div>
+                    <div class="slice s5"><span>₹1,000</span></div>
+                    <div class="slice s6"><span>₹200</span></div>
+                    <div class="slice s7"><span>₹5,000</span></div>
+                    <div class="slice s8"><span>₹80</span></div>
+                </div>
+                <button class="spin-action-btn" id="spin-btn" onclick="spinWheel()">SPIN</button>
+            </div>
+            <div id="wheel-result-msg" class="wheel-result"></div>
+        </div>
+    </div>
+
+    <!-- MODAL: Game Preview (Win Go) -->
+    <div id="game-modal" class="modal-overlay">
+        <div class="modal-card game-dialog">
+            <button class="modal-close" onclick="closeGameModal()">&times;</button>
+            <div class="game-dialog-header">
+                <h3 id="modal-game-title">Win Go 30s</h3>
+                <span class="game-status-badge">● LIVE</span>
+            </div>
+            <div class="game-preview-area">
+                <div class="game-live-mock">
+                    <div class="wingo-timer-box">
+                        <div class="timer-label">Period: 202611100382</div>
+                        <div class="timer-countdown" id="game-countdown">00:24</div>
+                    </div>
+                    <div class="color-options-row">
+                        <button class="color-btn green" onclick="placeDemoBet('Green')">Green 2X</button>
+                        <button class="color-btn violet" onclick="placeDemoBet('Violet')">Violet 4.5X</button>
+                        <button class="color-btn red" onclick="placeDemoBet('Red')">Red 2X</button>
+                    </div>
+                    <div class="numbers-grid-row">
+                        <button class="num-btn" onclick="placeDemoBet('0')">0</button>
+                        <button class="num-btn" onclick="placeDemoBet('1')">1</button>
+                        <button class="num-btn" onclick="placeDemoBet('2')">2</button>
+                        <button class="num-btn" onclick="placeDemoBet('3')">3</button>
+                        <button class="num-btn" onclick="placeDemoBet('4')">4</button>
+                        <button class="num-btn" onclick="placeDemoBet('5')">5</button>
+                        <button class="num-btn" onclick="placeDemoBet('6')">6</button>
+                        <button class="num-btn" onclick="placeDemoBet('7')">7</button>
+                        <button class="num-btn" onclick="placeDemoBet('8')">8</button>
+                        <button class="num-btn" onclick="placeDemoBet('9')">9</button>
+                    </div>
+                    <div class="bet-size-row">
+                        <button class="size-btn big" onclick="placeDemoBet('Big')">Big 1.98X</button>
+                        <button class="size-btn small" onclick="placeDemoBet('Small')">Small 1.98X</button>
+                    </div>
+                </div>
+            </div>
+            <div class="game-dialog-footer">
+                <button class="play-btn" onclick="showToast('Demo Bet Placed! Good luck!')">Place Demo Bet (₹100)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Popup -->
+    <div id="toast-box" class="toast">Action Successful</div>
+
+    <script src="/app.js"></script>
+</body>
+</html>
